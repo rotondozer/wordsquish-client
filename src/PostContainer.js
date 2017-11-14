@@ -7,10 +7,9 @@ class PostContainer extends Component {
   constructor (props) {
     super (props)
     this.state = {
-      author: 'Nick',
-      body: 'body',
       posts: []
     }
+    this.createPost = this.createPost.bind(this)
   }
 
   componentWillMount () {
@@ -30,6 +29,10 @@ class PostContainer extends Component {
       .catch((err) => console.log(err))
   }
 
+  createPost () {
+    console.log('create post', this.props.curUser.token)
+  }
+
   render () {
     const posts = this.state.posts.map((post, index) => <Post
       title={post.title}
@@ -38,7 +41,10 @@ class PostContainer extends Component {
     />)
 
     return (
-      <div> posts: {posts} </div>
+      <div>
+        <button onClick={this.createPost}>Create POST</button>
+        <div> posts: {posts} </div>
+      </div>
     )
   }
 }

@@ -8,7 +8,9 @@ const Main = (props) => (
   <main>
     <Switch>
       <Route exact path='/' component={Home}/>
-      <Route path='/posts' component={PostContainer} />
+      <Route path='/posts' render={() => (
+        <PostContainer curUser={props.curUser} />
+      )}/>
       <Route path='/account' render={() => (
         <Account setUser={props.setUser} />
       )} />

@@ -13,18 +13,14 @@ class App extends Component {
   }
 
   setUser (user) {
-    this.setState({
-      user: user
-    })
-    console.log(user)
-    console.log(this.state)
+    this.setState({ user })
   }
 
   render() {
     return (
       <div>
         <Header />
-        <Main setUser={this.setUser}/>
+        <Main setUser={this.setUser} curUser={this.state.user}/>
       </div>
     )
   }
