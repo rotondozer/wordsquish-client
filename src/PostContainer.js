@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
-import Post from './Post.js'
-
 import axios from 'axios'
+
+import Post from './Post.js'
+import CreatePostForm from './CreatePostForm'
 
 class PostContainer extends Component {
   constructor (props) {
     super (props)
     this.state = {
-      posts: []
+      posts: [],
+      createPost: false
     }
-    this.createPost = this.createPost.bind(this)
   }
 
   componentWillMount () {
@@ -29,11 +30,11 @@ class PostContainer extends Component {
       .catch((err) => console.log(err))
   }
 
-  createPost () {
-    console.log('create post', this.props.curUser.token)
-  }
+  showCreatePostForm = () => this.setState({ createPost: !this.state.createPost })
 
   render () {
+    const createPostForm = (this.state.createPost) ? <CreatePostForm /> : ''
+
     const posts = this.state.posts.map((post, index) => <Post
       title={post.title}
       body={post.body}
@@ -42,7 +43,8 @@ class PostContainer extends Component {
 
     return (
       <div>
-        <button onClick={this.createPost}>Create POST</button>
+        <button onClick={this.showCreatePostForm}>Create POST</button>
+        {createPostForm}
         <div> posts: {posts} </div>
       </div>
     )

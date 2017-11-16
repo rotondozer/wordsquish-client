@@ -12,9 +12,7 @@ class App extends Component {
     this.setUser = this.setUser.bind(this)
   }
 
-  setUser (user) {
-    this.setState({ user })
-  }
+  setUser = (user) => this.setState({ user })
 
   render() {
     return (
