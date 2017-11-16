@@ -41,8 +41,12 @@ class SignInForm extends Component {
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input placeholder='username' value={this.state.username} onChange={(event) => this.handleChange(event, 'username')} />
-        <input placeholder='password' value={this.state.password} onChange={(event) => this.handleChange(event, 'password')} />
+        <input placeholder='username'
+          value={this.state.username}
+          onChange={(event) => this.handleChange(event, 'username')} />
+        <input placeholder='password'
+          value={this.state.password}
+          onChange={(event) => this.handleChange(event, 'password')} />
         <button type='submit'>sign in</button>
       </form>
     )
