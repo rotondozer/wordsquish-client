@@ -50,7 +50,8 @@ class PostContainer extends Component {
       <div>
         <button onClick={this.showCreatePostForm}>Create POST</button>
         {createPostForm}
-        <div> posts: {posts} </div>
+        <h1>Posts</h1>
+        <div>{posts}</div>
       </div>
     )
   }
