@@ -19,7 +19,8 @@ class CreatePostForm extends Component {
     })
   }
 
-  createPost () {
+  createPost (event) {
+    event.preventDefault()
     // console.log('create post', this.props.curUser.token)
     axios({
       url: 'http://localhost:4741/posts',
@@ -36,14 +37,16 @@ class CreatePostForm extends Component {
       }
     })
       .then((res) => console.log(res))
+      .then(this.props.getAllPosts)
       .catch((err) => console.log(err))
   }
 
   render () {
     return (
-      <form onSubmit={this.createPost}>
+      <form onSubmit={(event) => this.createPost(event)}>
         <input placeholder='title' onChange={(event) => this.handleChange(event, 'title')} value={this.state.title}/>
         <input placeholder='body' onChange={(event) => this.handleChange(event, 'body')} value={this.state.body}/>
+        <button type='submit'>Post</button>
       </form>
     )
   }

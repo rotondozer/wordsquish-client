@@ -11,9 +11,14 @@ class PostContainer extends Component {
       posts: [],
       createPost: false
     }
+    this.getAllPosts = this.getAllPosts.bind(this)
   }
 
   componentWillMount () {
+    this.getAllPosts()
+  }
+
+  getAllPosts () {
     axios({
       url: 'http://localhost:4741/posts',
       method: 'GET',
@@ -33,7 +38,7 @@ class PostContainer extends Component {
   showCreatePostForm = () => this.setState({ createPost: !this.state.createPost })
 
   render () {
-    const createPostForm = (this.state.createPost) ? <CreatePostForm /> : ''
+    const createPostForm = (this.state.createPost) ? <CreatePostForm getAllPosts={this.getAllPosts} curUser={this.props.curUser} /> : ''
 
     const posts = this.state.posts.map((post, index) => <Post
       title={post.title}
