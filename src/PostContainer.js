@@ -12,6 +12,7 @@ class PostContainer extends Component {
       createPost: false
     }
     this.getAllPosts = this.getAllPosts.bind(this)
+    this.deletePost = this.deletePost.bind(this)
   }
 
   componentWillMount () {
@@ -37,12 +38,31 @@ class PostContainer extends Component {
 
   showCreatePostForm = () => this.setState({ createPost: !this.state.createPost })
 
+  deletePost (postId) {
+    // Regex in the server will not process token unless it is
+    // included in the header exactly like this
+    console.log('token = ' + this.props.curUser.token)
+    console.log('post id = ' + postId)
+    axios({
+      method: 'DELETE',
+      url: `http://localhost:4741/posts/${postId}`,
+      headers: {
+        Authorization: 'Token token=' + this.props.curUser.token
+      }
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err))
+  }
+
   render () {
-    const createPostForm = (this.state.createPost) ? <CreatePostForm getAllPosts={this.getAllPosts} curUser={this.props.curUser} /> : ''
+    const createPostForm = (this.state.createPost) ? <CreatePostForm getAllPosts={this.getAllPosts} curUser={this.props.curUser} /> : undefined
 
     const posts = this.state.posts.map((post, index) => <Post
+      id={post._id}
+      deletePost={this.deletePost}
       title={post.title}
       body={post.body}
+      // Why not just make the key the id instead of index?
       key={index}
     />)
 
