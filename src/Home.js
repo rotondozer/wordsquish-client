@@ -34,14 +34,16 @@ class Home extends Component {
   }
 
   render () {
-    const posts = this.state.posts.map((post, index) => <Post
-      id={post._id}
-      deletePost={this.deletePost}
-      title={post.title}
-      body={post.body}
-      // Why not just make the key the id instead of index?
-      key={index}
-    />)
+    const posts = this.state.posts.map((post, index) => <div
+      className='post'
+      key={index}>
+      <Post
+        id={post._id}
+        deletePost={this.deletePost}
+        title={post.title}
+        body={post.body}
+      />
+    </div>)
 
     return (
       <div>

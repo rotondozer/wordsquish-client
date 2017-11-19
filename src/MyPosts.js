@@ -45,13 +45,11 @@ class MyPosts extends Component {
   deletePost (postId) {
     // Regex in the server will not process token unless it is
     // included in the header exactly like this
-    console.log('token = ' + this.props.curUser.token)
-    console.log('post id = ' + postId)
     axios({
       method: 'DELETE',
       url: `http://localhost:4741/posts/${postId}`,
       headers: {
-        Authorization: 'Token token=' + this.props.curUser.token
+        Authorization: `Token token=${this.props.curUser.token}`
       }
     })
       .then(this.getMyPosts)
@@ -61,13 +59,15 @@ class MyPosts extends Component {
   render () {
     const createPostForm = (this.state.createPost) ? <CreatePostForm getMyPosts={this.getMyPosts} curUser={this.props.curUser} /> : undefined
 
-    const posts = this.state.posts.map((post, index) => <div key={index}>
+    const posts = this.state.posts.map((post, index) => <div
+      className='post'
+      key={index}>
       <Post
         id={post._id}
         deletePost={this.deletePost}
         title={post.title}
         body={post.body}
-        // key prop must be in child, not grandchild
+        // key prop must be in child ^, not grandchild
       />
       <button onClick={() => this.deletePost(post._id)}>Delete</button>
     </div>)
