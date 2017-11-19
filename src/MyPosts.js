@@ -76,7 +76,7 @@ class MyPosts extends Component {
       <div>
         <button onClick={this.showCreatePostForm}>Create POST</button>
         {createPostForm}
-        <h1>Posts</h1>
+        <h1>My Posts</h1>
         <div>{posts}</div>
       </div>
     )

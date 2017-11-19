@@ -11,11 +11,15 @@ li {
 }
 
 header {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   margin: 4px;
 }
 
 .post {
   border: 1px solid black;
   margin: 3px;
+}
+
+.wordpress {
+  font-size: 30px !important;
 }

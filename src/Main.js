@@ -4,14 +4,9 @@ import MyPosts from './MyPosts.js'
 import Home from './Home'
 import Account from './Account'
 
-import { Segment } from 'semantic-ui-react'
-
 const Main = (props) => (
   <main>
-    <Segment>THIS IS A SEGMENT</Segment>
     <Switch>
-
-
       <Route exact path='/' render={() => (
         <Home />
       )}/>
