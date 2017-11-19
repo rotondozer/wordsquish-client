@@ -1,7 +1,10 @@
-li {
+/* USE index.css  */
+
+/*li {
   list-style: none;
   display: inline;
-}
+  padding: 50px;
+}*/
 
 /*.App {
   text-align: center;

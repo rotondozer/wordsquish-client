@@ -36,7 +36,7 @@ class CreatePostForm extends Component {
       }
     })
       .then((res) => console.log(res))
-      .then(this.props.getAllPosts)
+      .then(this.props.getMyPosts)
       .catch((err) => console.log(err))
   }
 

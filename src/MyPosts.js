@@ -4,27 +4,31 @@ import axios from 'axios'
 import Post from './Post.js'
 import CreatePostForm from './CreatePostForm'
 
-class PostContainer extends Component {
+class MyPosts extends Component {
   constructor (props) {
     super (props)
     this.state = {
       posts: [],
       createPost: false
     }
-    this.getAllPosts = this.getAllPosts.bind(this)
+    this.getMyPosts = this.getMyPosts.bind(this)
     this.deletePost = this.deletePost.bind(this)
   }
 
   componentWillMount () {
-    this.getAllPosts()
+    this.getMyPosts()
   }
 
-  getAllPosts () {
+  getMyPosts () {
+    // set user in container to avoid having to pass user info as argument
+    // each time the function is called
+    const user = this.props.curUser
     axios({
-      url: 'http://localhost:4741/posts',
+      url: `http://localhost:4741/posts/${user._id}/my_posts`,
       method: 'GET',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        Authorization: `Token token=${user.token}`
       }
     })
       .then((response) => {
@@ -50,21 +54,23 @@ class PostContainer extends Component {
         Authorization: 'Token token=' + this.props.curUser.token
       }
     })
-      .then((res) => console.log(res))
+      .then(this.getMyPosts)
       .catch((err) => console.log(err))
   }
 
   render () {
-    const createPostForm = (this.state.createPost) ? <CreatePostForm getAllPosts={this.getAllPosts} curUser={this.props.curUser} /> : undefined
+    const createPostForm = (this.state.createPost) ? <CreatePostForm getMyPosts={this.getMyPosts} curUser={this.props.curUser} /> : undefined
 
-    const posts = this.state.posts.map((post, index) => <Post
-      id={post._id}
-      deletePost={this.deletePost}
-      title={post.title}
-      body={post.body}
-      // Why not just make the key the id instead of index?
-      key={index}
-    />)
+    const posts = this.state.posts.map((post, index) => <div key={index}>
+      <Post
+        id={post._id}
+        deletePost={this.deletePost}
+        title={post.title}
+        body={post.body}
+        // key prop must be in child, not grandchild
+      />
+      <button onClick={() => this.deletePost(post._id)}>Delete</button>
+    </div>)
 
     return (
       <div>
@@ -77,4 +83,4 @@ class PostContainer extends Component {
   }
 }
 
-export default PostContainer
+export default MyPosts

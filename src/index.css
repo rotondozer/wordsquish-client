@@ -1,12 +1,18 @@
-/*body {
+body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-}*/
+}
 
 li {
   list-style: none;
   display: inline;
+  margin: 8px;
+}
+
+header {
+  border: 1px solid black;
+  margin: 4px;
 }
 
 .post {

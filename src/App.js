@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header curUser={this.state.user}/>
         <Main setUser={this.setUser} curUser={this.state.user}/>
       </div>
     )
