@@ -16,17 +16,19 @@ class Header extends Component {
   render () {
     const { activeItem } = this.state
 
+    const userName = (this.props.curUser.email === undefined) ? 'Not Signed In' : `Hello, ${this.props.curUser.email}!`
+
     return (
       <header>
-        <a><b>WordSquish</b></a>
-        <Menu fluid widths={3}>
+        <Menu fixed='top' className='navbar'>
           <Menu.Item
+            className='logo'
             name='home'
             active={activeItem === 'home'}
             onClick={this.handleItemClick}
             as={Link} to='/'
           >
-            <Icon className="wordpress icon" />
+            WordSquish
           </Menu.Item>
 
           <Menu.Item
@@ -46,17 +48,10 @@ class Header extends Component {
           >
             My Account
           </Menu.Item>
+          <Menu.Item position='right'>
+            {userName}
+          </Menu.Item>
         </Menu>
-        <div>{this.props.curUser.email}</div>
-        {/* <nav>
-          <ul>
-            <li><b>WordSquish</b></li>
-            <li><Link to='/'>Home</Link></li>{'       '}
-            <li><Link to='/posts'>Posts</Link></li>{'       '}
-            <li><Link to='/account'>Account</Link></li>{'       '}
-            <li>{props.curUser.email}</li>
-          </ul>
-        </nav> */}
       </header>
     )
   }
