@@ -7,9 +7,13 @@ class Home extends Component {
   constructor (props) {
     super (props)
     this.state = {
-      posts: []
+      posts: [],
+      users: []
     }
     this.getAllPosts = this.getAllPosts.bind(this)
+    this.getAllUsers = this.getAllUsers.bind(this)
+    // this.getPostOwner = this.getPostOwner.bind(this)
+    // this.getAllPostOwners = this.getAllPostOwners.bind(this)
   }
 
   getAllPosts () {
@@ -26,24 +30,68 @@ class Home extends Component {
         })
         console.log(this.state.posts)
       })
+      .then(this.getAllPostOwners)
       .catch((err) => console.log(err))
+  }
+
+  // getPostOwner (post, i) {
+  //   let stuff = axios({
+  //     url: `http://localhost:4741/users/${post._owner}`,
+  //     method: 'GET',
+  //     headers: {
+  //       'content-type': 'application/json'
+  //     }
+  //   })
+  //     // .then((res) => setPostOwner(res.data.user))
+  //     // // .then(res => applyPostOwner(res.data.user))
+  //     // .catch(err => console.log(err))
+  //     debugger
+  // }
+  //
+  // getAllPostOwners () {
+  //   let posts = this.state.posts
+  //   posts.forEach((post, i) => {
+  //     // const postOwner
+  //     this.getPostOwner(post, i)
+  //     // post.owner = postOwner
+  //   })
+  // }
+
+  getAllUsers () {
+    axios({
+      url: 'http://localhost:4741/users',
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+      .then(res => this.setState({ users: res.data.users }))
+      .catch(err => console.log(err))
   }
 
   componentWillMount () {
     this.getAllPosts()
+    this.getAllUsers()
   }
 
   render () {
-    const posts = this.state.posts.map((post, index) => <div
-      className='post'
-      key={index}>
-      <Post
-        id={post._id}
-        deletePost={this.deletePost}
-        title={post.title}
-        body={post.body}
-      />
-    </div>)
+    // debugger
+
+    const posts = this.state.posts.map((post, index) => {
+      let author
+      this.state.users.forEach((user) => user._id === post._owner ? author = user.email : user)
+      return <div
+        className='post'
+        key={index}>
+        <Post
+          id={post._id}
+          deletePost={this.deletePost}
+          title={post.title}
+          body={post.body}
+          author={author}
+        />
+      </div>
+    })
 
     return (
       <div>
