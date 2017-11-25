@@ -5,7 +5,7 @@ import Time from 'react-time'
 
 const Post = (props) => (
   <Card>
-    <Card.Content className='container'>
+    <Card.Content className='post-container'>
       <Card.Header className='inline'>{props.title}</Card.Header>
       <Card.Meta className='inline'>by: {props.author}</Card.Meta>
     </Card.Content>
