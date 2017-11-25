@@ -1,12 +1,17 @@
 import React from 'react'
+import { Card } from 'semantic-ui-react'
+
+import Time from 'react-time'
 
 const Post = (props) => (
-  <div>
-    <h3>{props.title}</h3>
-    <p>{props.body}</p>
-    <p>{props.author}</p>
-    {/* <button onClick={() => props.deletePost(props.id)}>Delete</button> */}
-  </div>
+  <Card>
+    <Card.Content className='container'>
+      <Card.Header className='inline'>{props.title}</Card.Header>
+      <Card.Meta className='inline'>by: {props.author}</Card.Meta>
+    </Card.Content>
+    <Card.Content description={props.body} />
+    <Card.Content extra>at <Time value={props.createdAt} format='hh:mm' /> on <Time value={props.createdAt} format='MM/DD/YYYY'/></Card.Content>
+  </Card>
 )
 
 

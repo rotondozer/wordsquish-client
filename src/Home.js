@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Comment, Header } from 'semantic-ui-react'
 
 import Post from './Post'
 
@@ -75,8 +76,7 @@ class Home extends Component {
   }
 
   render () {
-    // debugger
-
+    // match posts from state to authors from state
     const posts = this.state.posts.map((post, index) => {
       let author
       this.state.users.forEach((user) => user._id === post._owner ? author = user.email : user)
@@ -89,15 +89,16 @@ class Home extends Component {
           title={post.title}
           body={post.body}
           author={author}
+          createdAt={post.createdAt}
         />
       </div>
     })
 
     return (
-      <div>
-        <h2>Recent Activity</h2>
+      <Comment.Group>
+        <Header as='h3' dividing>Recent Activity</Header>
         {posts}
-      </div>
+      </Comment.Group>
 
     )
   }

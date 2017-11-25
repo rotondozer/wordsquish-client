@@ -21,8 +21,20 @@ main {
 }
 
 .post {
-  border: 1px solid black;
-  margin: 3px;
+  /*border: 1px solid black;*/
+  margin: 15px !important;
+}
+
+.inline {
+  /*display: inline !important;*/
+  /*margin: 5px;*/
+  /*border: 1px dotted black;*/
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .logo {
