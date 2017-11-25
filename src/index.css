@@ -31,10 +31,15 @@ main {
   /*border: 1px dotted black;*/
 }
 
+.card {
+  background-color: rgba(135, 135, 135, 0.25) !important;
+}
+
 .container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: rgba(81, 127, 153, 0.75) !important;
 }
 
 .logo {

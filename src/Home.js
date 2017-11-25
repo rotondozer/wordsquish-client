@@ -95,10 +95,10 @@ class Home extends Component {
     })
 
     return (
-      <Comment.Group>
+      <div>
         <Header as='h3' dividing>Recent Activity</Header>
         {posts}
-      </Comment.Group>
+      </div>
 
     )
   }
