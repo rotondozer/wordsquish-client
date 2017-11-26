@@ -7,15 +7,20 @@ class Page extends Component {
     this.state = {
 
     }
+    this.togglePageVisibility = this.togglePageVisibility.bind(this)
+  }
+
+  togglePageVisibility () {
+
   }
 
   render () {
     return (
       <Container>
-        <Segment>
+        <Segment onClick={this.togglePageVisibility}>
           {this.props.title}
         </Segment>
-        <Container >
+        <Container hidden={}>
           {/* Allow hidden to be removed onClick */}
           <Header dividing content={this.props.heading}/>
           <Container as='div'>
