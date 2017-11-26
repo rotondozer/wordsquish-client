@@ -1,24 +1,34 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Container, Segment, Header, Divider } from 'semantic-ui-react'
 
-const Page = (props) => (
-  <Container>
-    <Segment>
-      {props.title}
-    </Segment>
-    <Container >
-      {/* Allow hidden to be removed onClick */}
-      <Header dividing content={props.heading}/>
-      <Container as='div'>
-        <p>{props.body}</p>
-        <Divider />
-        {props.footer}
+class Page extends Component {
+  constructor (props) {
+    super (props)
+    this.state = {
+
+    }
+  }
+
+  render () {
+    return (
+      <Container>
+        <Segment>
+          {this.props.title}
+        </Segment>
+        <Container >
+          {/* Allow hidden to be removed onClick */}
+          <Header dividing content={this.props.heading}/>
+          <Container as='div'>
+            <p>{this.props.body}</p>
+            <Divider />
+            {this.props.footer}
+          </Container>
+
+
+        </Container>
       </Container>
-
-
-    </Container>
-  </Container>
-
-)
+    )
+  }
+}
 
 export default Page
