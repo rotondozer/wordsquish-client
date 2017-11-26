@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Grid, Header } from 'semantic-ui-react'
+import { Container, Grid, Header } from 'semantic-ui-react'
 
 import Post from './Post'
 import Page from './Page'
@@ -106,12 +106,11 @@ class Home extends Component {
     })
 
     return (
-      <div>
+      <Container>
         <Header as='h2' dividing>Recent Activity</Header>
 
-        <Grid divided relaxed>
-          <Grid.Column width={8} className='pages-column'>
-            here's where pages will go
+        <Grid divided relaxed='very'>
+          <Grid.Column width={10} className='pages-column'>
             {pages}
           </Grid.Column>
 
@@ -120,7 +119,7 @@ class Home extends Component {
           </Grid.Column>
 
         </Grid>
-      </div>
+      </Container>
 
     )
   }
