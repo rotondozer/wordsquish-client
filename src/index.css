@@ -15,15 +15,16 @@ main {
 }
 
 .page {
-  border: 1px solid black;
   margin-bottom: 16px;
   padding: 8px;
 }
 
-.inline {
-  /*display: inline !important;*/
-  /*margin: 5px;*/
-  /*border: 1px dotted black;*/
+.page-content {
+  background-color: rgba(135, 135, 135, 0.25) !important;
+}
+
+.page-title {
+  background-color: rgba(81, 127, 153, 0.75) !important;
 }
 
 .card {
