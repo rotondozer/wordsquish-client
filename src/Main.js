@@ -1,6 +1,8 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import MyPosts from './MyPosts.js'
+
+import MyPosts from './MyPosts'
+import MyPages from './MyPages'
 import Home from './Home'
 import Account from './Account'
 
@@ -16,7 +18,9 @@ const Main = (props) => (
       <Route path='/account' render={() => (
         <Account setUser={props.setUser} />
       )} />
-      {/* <Route path='/pages' component={PageContainer} /> */}
+      <Route path='/pages' render={() => (
+        <MyPages curUser={props.curUser} />
+      )} />
     </Switch>
   </main>
 )

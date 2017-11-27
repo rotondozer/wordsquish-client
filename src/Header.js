@@ -41,6 +41,15 @@ class Header extends Component {
           </Menu.Item>
 
           <Menu.Item
+            name='pages'
+            active={activeItem === 'pages'}
+            onClick={this.handleItemClick}
+            as={Link} to='/pages'
+          >
+            My Pages
+          </Menu.Item>
+
+          <Menu.Item
             name='account'
             active={activeItem === 'account'}
             onClick={this.handleItemClick}
