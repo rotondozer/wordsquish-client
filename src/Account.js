@@ -2,6 +2,7 @@ import React from 'react'
 
 import SignInForm from './SignInForm'
 import ChangePasswordForm from './ChangePasswordForm'
+import SignOutForm from './SignOutForm'
 
 const Account = (props) => {
 
@@ -9,6 +10,9 @@ const Account = (props) => {
     <div>
       <h3>Change Password</h3>
       <ChangePasswordForm curUser={props.curUser}/>
+      <SignOutForm
+        setUser={props.setUser}
+        curUser={props.curUser} />
     </div>
   ) : (
     <div>
