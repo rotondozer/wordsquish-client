@@ -10,20 +10,12 @@ class SignInForm extends Component {
       password: ''
     }
     this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.signIn = this.signIn.bind(this)
   }
-
-  // handleChange (event, formField) {
-  //   event.preventDefault()
-  //   this.setState({
-  //     [formField]: event.target.value
-  //   })
-  // }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
-  handleSubmit (event) {
-    event.preventDefault()
+  signIn () {
     axios({
       url: 'http://localhost:4741/sign-in/',
       method: 'POST',
@@ -45,23 +37,13 @@ class SignInForm extends Component {
     const { username, password } = this.state
 
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.signIn}>
         <Form.Group>
           <Form.Input placeholder='Username' name='username' value={username} onChange={this.handleChange} />
           <Form.Input placeholder='Password' name='password' value={password} onChange={this.handleChange} />
           <Form.Button content='Submit' />
         </Form.Group>
       </Form>
-
-      // <form onSubmit={this.handleSubmit}>
-      //   <input placeholder='username'
-      //     value={this.state.username}
-      //     onChange={(event) => this.handleChange(event, 'username')} />
-      //   <input placeholder='password'
-      //     value={this.state.password}
-      //     onChange={(event) => this.handleChange(event, 'password')} />
-      //   <button type='submit'>sign in</button>
-      // </form>
     )
   }
 }
