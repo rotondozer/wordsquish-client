@@ -1,4 +1,5 @@
 import React from 'react'
+import { Container, Header } from 'semantic-ui-react'
 
 import SignInForm from './SignInForm'
 import ChangePasswordForm from './ChangePasswordForm'
@@ -7,25 +8,25 @@ import SignOutForm from './SignOutForm'
 const Account = (props) => {
 
   let acctView = (props.curUser) ? (
-    <div>
-      <h3>Change Password</h3>
+    <Container>
+      <Header as='h3' content='Change Password' />
       <ChangePasswordForm curUser={props.curUser}/>
       <SignOutForm
         setUser={props.setUser}
         curUser={props.curUser} />
-    </div>
+    </Container>
   ) : (
-    <div>
-      <h3>Sign In</h3>
+    <Container>
+      <Header as='h3' content='Sign In' />
       <SignInForm setUser={props.setUser}/>
-    </div>
+    </Container>
   )
 
   return (
-    <div>
-      <h1>My Account</h1>
+    <Container>
+      <Header as='h2' content='My Account' />
       {acctView}
-    </div>
+    </Container>
   )
 
 }

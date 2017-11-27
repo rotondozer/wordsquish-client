@@ -21,7 +21,7 @@ class SignOutForm extends Component {
 
   render () {
     return (
-      <Button onClick={this.signOut.bind(this)}>Sign Out</Button>
+      <Button size='large' onClick={this.signOut.bind(this)}>Sign Out</Button>
     )
   }
 }

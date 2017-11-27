@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Form } from 'semantic-ui-react'
 
 class SignInForm extends Component {
   constructor (props) {
@@ -12,12 +13,14 @@ class SignInForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange (event, formField) {
-    event.preventDefault()
-    this.setState({
-      [formField]: event.target.value
-    })
-  }
+  // handleChange (event, formField) {
+  //   event.preventDefault()
+  //   this.setState({
+  //     [formField]: event.target.value
+  //   })
+  // }
+
+  handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   handleSubmit (event) {
     event.preventDefault()
@@ -39,16 +42,26 @@ class SignInForm extends Component {
   }
 
   render () {
+    const { username, password } = this.state
+
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input placeholder='username'
-          value={this.state.username}
-          onChange={(event) => this.handleChange(event, 'username')} />
-        <input placeholder='password'
-          value={this.state.password}
-          onChange={(event) => this.handleChange(event, 'password')} />
-        <button type='submit'>sign in</button>
-      </form>
+      <Form onSubmit={this.handleSubmit}>
+        <Form.Group>
+          <Form.Input placeholder='Username' name='username' value={username} onChange={this.handleChange} />
+          <Form.Input placeholder='Password' name='password' value={password} onChange={this.handleChange} />
+          <Form.Button content='Submit' />
+        </Form.Group>
+      </Form>
+
+      // <form onSubmit={this.handleSubmit}>
+      //   <input placeholder='username'
+      //     value={this.state.username}
+      //     onChange={(event) => this.handleChange(event, 'username')} />
+      //   <input placeholder='password'
+      //     value={this.state.password}
+      //     onChange={(event) => this.handleChange(event, 'password')} />
+      //   <button type='submit'>sign in</button>
+      // </form>
     )
   }
 }
