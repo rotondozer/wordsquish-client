@@ -16,7 +16,8 @@ const Main = (props) => (
         <MyPosts curUser={props.curUser} />
       )} />
       <Route path='/account' render={() => (
-        <Account curUser={props.curUser} setUser={props.setUser} />
+        <Account curUser={props.curUser}
+          setUser={props.setUser} />
       )} />
       <Route path='/pages' render={() => (
         <MyPages curUser={props.curUser} />
