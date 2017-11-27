@@ -46,7 +46,7 @@ class MyPages extends Component {
       key={index}>
       <Page
         id={page._id}
-
+        // Delete Page function
         title={page.title}
         heading={page.sections.heading}
         body={page.sections.body}
@@ -55,7 +55,7 @@ class MyPages extends Component {
     </div>)
     return (
       <Container>
-        <Header divided content='My Pages' />
+        <Header divided='horizontally' content='My Pages' />
         {pages}
       </Container>
     )

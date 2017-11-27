@@ -11,12 +11,12 @@ const Main = (props) => (
     <Switch>
       <Route exact path='/' render={() => (
         <Home />
-      )}/>
+      )} />
       <Route path='/posts' render={() => (
         <MyPosts curUser={props.curUser} />
-      )}/>
+      )} />
       <Route path='/account' render={() => (
-        <Account setUser={props.setUser} />
+        <Account curUser={props.curUser} setUser={props.setUser} />
       )} />
       <Route path='/pages' render={() => (
         <MyPages curUser={props.curUser} />

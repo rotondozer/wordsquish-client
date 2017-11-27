@@ -1,22 +1,18 @@
 import React, { Component } from 'react'
-import { Container, Segment, Header, Divider, Reveal } from 'semantic-ui-react'
+import { Container, Segment, Header, Divider } from 'semantic-ui-react'
 
 class Page extends Component {
   constructor (props) {
     super (props)
     this.state = {
-      // segmentHide: false,
       containerHide: true
-      // active: false
     }
     this.togglePageVisibility = this.togglePageVisibility.bind(this)
   }
 
   togglePageVisibility () {
     this.setState({
-      // segmentHide: !this.state.segmentHide,
       containerHide: !this.state.containerHide
-      // active: !this.state.active
     })
   }
 

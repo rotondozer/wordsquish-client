@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Container, Header } from 'semantic-ui-react'
 
 import Post from './Post.js'
 import CreatePostForm from './CreatePostForm'
@@ -73,12 +74,12 @@ class MyPosts extends Component {
     </div>)
 
     return (
-      <div>
+      <Container>
+        <Header divided='horizontally' content='My Posts'/>
         <button onClick={this.showCreatePostForm}>Create POST</button>
         {createPostForm}
-        <h1>My Posts</h1>
-        <div>{posts}</div>
-      </div>
+        {posts}
+      </Container>
     )
   }
 }
