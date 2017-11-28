@@ -17,7 +17,6 @@ class SignUpForm extends Component {
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   signUp () {
-    debugger
     axios({
       url: 'http://localhost:4741/sign-up',
       method: 'POST',

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Form } from 'semantic-ui-react'
 
 class CreatePostForm extends Component {
   constructor (props) {
@@ -19,8 +20,7 @@ class CreatePostForm extends Component {
     })
   }
 
-  createPost (event) {
-    event.preventDefault()
+  createPost () {
     axios({
       url: 'http://localhost:4741/posts',
       method: 'POST',
@@ -42,15 +42,26 @@ class CreatePostForm extends Component {
 
   render () {
     return (
-      <form onSubmit={(event) => this.createPost(event)}>
-        <input placeholder='title'
-          onChange={(event) => this.handleChange(event, 'title')}
-          value={this.state.title}/>
-        <input placeholder='body'
-          onChange={(event) => this.handleChange(event, 'body')}
-          value={this.state.body}/>
-        <button type='submit'>Post</button>
-      </form>
+      <Form className='create-post-form' onSubmit={this.createPost}>
+        <Form.Field>
+          <Form.Input placeholder='Title' size='large'/>
+        </Form.Field>
+        <Form.Field>
+          <Form.TextArea placeholder="What's on your mind" size='large'/>
+        </Form.Field>
+
+        <Form.Button fluid>Make Post</Form.Button>
+
+        {/* <form onSubmit={(event) => this.createPost(event)}>
+          <input placeholder='title'
+            onChange={(event) => this.handleChange(event, 'title')}
+            value={this.state.title}/>
+          <input placeholder='body'
+            onChange={(event) => this.handleChange(event, 'body')}
+            value={this.state.body}/>
+          <button type='submit'>Post</button>
+        </form> */}
+      </Form>
     )
   }
 }

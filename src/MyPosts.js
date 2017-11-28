@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Container, Header } from 'semantic-ui-react'
+import { Container, Header, Segment } from 'semantic-ui-react'
 
 import Post from './Post.js'
 import CreatePostForm from './CreatePostForm'
@@ -21,8 +21,6 @@ class MyPosts extends Component {
   }
 
   getMyPosts () {
-    // set user in container to avoid having to pass user info as argument
-    // each time the function is called
     const user = this.props.curUser
     axios({
       url: `http://localhost:4741/posts/${user._id}/my_posts`,
@@ -75,9 +73,12 @@ class MyPosts extends Component {
 
     return (
       <Container>
-        <Header divided='horizontally' content='My Posts'/>
+        <Header content='My Posts'/>
         <button onClick={this.showCreatePostForm}>Create POST</button>
-        {createPostForm}
+        <Container className='create-post-container'>
+          {createPostForm}
+        </Container>
+
         {posts}
       </Container>
     )
