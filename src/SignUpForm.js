@@ -17,15 +17,16 @@ class SignUpForm extends Component {
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   signUp () {
+    debugger
     axios({
-      url: 'localhost:4741/sign-up',
+      url: 'https://wordsquish-api.herokuapp.com/sign-up',
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
       data: {
         'credentials': {
-          'email': this.state.email,
+          'email': this.state.username,
           'password': this.state.password,
           'password_confirmation': this.state.passwordConfirm
         }

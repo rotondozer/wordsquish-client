@@ -1,6 +1,7 @@
 import React from 'react'
-import { Container, Header } from 'semantic-ui-react'
+import { Container, Header, Divider } from 'semantic-ui-react'
 
+import SignUpForm from './SignUpForm'
 import SignInForm from './SignInForm'
 import ChangePasswordForm from './ChangePasswordForm'
 import SignOutForm from './SignOutForm'
@@ -18,7 +19,9 @@ const Account = (props) => {
   ) : (
     <Container>
       <Header as='h3' content='Sign In' />
-      <SignInForm setUser={props.setUser}/>
+      <SignInForm setUser={props.setUser} />
+      <Divider />
+      <SignUpForm setUser={props.setUser} />
     </Container>
   )
 

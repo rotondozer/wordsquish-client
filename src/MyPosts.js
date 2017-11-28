@@ -25,7 +25,7 @@ class MyPosts extends Component {
     // each time the function is called
     const user = this.props.curUser
     axios({
-      url: `http://localhost:4741/posts/${user._id}/my_posts`,
+      url: `https://wordsquish-api.herokuapp.com/posts/${user._id}/my_posts`,
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -48,7 +48,7 @@ class MyPosts extends Component {
     // included in the header exactly like this
     axios({
       method: 'DELETE',
-      url: `http://localhost:4741/posts/${postId}`,
+      url: `https://wordsquish-api.herokuapp.com/posts/${postId}`,
       headers: {
         Authorization: `Token token=${this.props.curUser.token}`
       }
