@@ -40,7 +40,7 @@ class SignInForm extends Component {
       <Form onSubmit={this.signIn}>
         <Form.Group>
           <Form.Input placeholder='Username' name='username' value={username} onChange={this.handleChange} />
-          <Form.Input placeholder='Password' name='password' value={password} onChange={this.handleChange} />
+          <Form.Input placeholder='Password' name='password' value={password} onChange={this.handleChange} type='password'/>
           <Form.Button content='Submit' />
         </Form.Group>
       </Form>

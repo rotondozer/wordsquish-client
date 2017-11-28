@@ -21,6 +21,7 @@ const Account = (props) => {
       <Header as='h3' content='Sign In' />
       <SignInForm setUser={props.setUser} />
       <Divider />
+      <Header as='h3' content='Create an Account' />
       <SignUpForm setUser={props.setUser} />
     </Container>
   )
