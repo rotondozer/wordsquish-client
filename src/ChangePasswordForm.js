@@ -16,7 +16,7 @@ class ChangePasswordForm extends Component {
 
   changePassword () {
     axios({
-      url: `https://wordsquish-api.herokuapp.com/change-password/${this.props.curUser.id}`,
+      url: `http://localhost:4741/change-password/${this.props.curUser.id}`,
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',

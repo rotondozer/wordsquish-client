@@ -20,7 +20,7 @@ class Home extends Component {
 
   getAllPosts () {
     axios({
-      url: 'https://wordsquish-api.herokuapp.com/posts',
+      url: 'http://localhost:4741/posts',
       method: 'GET',
       headers: {
         'content-type': 'application/json'
@@ -37,7 +37,7 @@ class Home extends Component {
 
   getAllPages () {
     axios({
-      url: 'https://wordsquish-api.herokuapp.com/pages',
+      url: 'http://localhost:4741/pages',
       method: 'GET',
       headers: {
         'content-type': 'application/json'
@@ -54,7 +54,7 @@ class Home extends Component {
 
   getAllUsers () {
     axios({
-      url: 'https://wordsquish-api.herokuapp.com/users',
+      url: 'http://localhost:4741/users',
       method: 'GET',
       headers: {
         'content-type': 'application/json'
