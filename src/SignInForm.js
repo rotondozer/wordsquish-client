@@ -17,7 +17,7 @@ class SignInForm extends Component {
 
   signIn () {
     axios({
-      url: 'https://cms-express-api.herokuapp.com/sign-in/',
+      url: 'https://wordsquish-api.herokuapp.com/sign-in/',
       method: 'POST',
       headers: {
         'content-type': 'application/json'

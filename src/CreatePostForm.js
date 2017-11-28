@@ -22,7 +22,7 @@ class CreatePostForm extends Component {
   createPost (event) {
     event.preventDefault()
     axios({
-      url: 'https://cms-express-api.herokuapp.com/posts',
+      url: 'https://wordsquish-api.herokuapp.com/posts',
       method: 'POST',
       headers: {
         'content-type': 'application/json',
