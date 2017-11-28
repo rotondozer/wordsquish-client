@@ -7,7 +7,7 @@ class SignOutForm extends Component {
   signOut () {
     const user = this.props.curUser
     axios({
-      url: `http://localhost:4741/sign-out/${user.id}`,
+      url: `https://cms-express-api.herokuapp.com/sign-out/${user.id}`,
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',

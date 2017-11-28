@@ -22,7 +22,7 @@ class CreatePostForm extends Component {
   createPost (event) {
     event.preventDefault()
     axios({
-      url: 'http://localhost:4741/posts',
+      url: 'https://cms-express-api.herokuapp.com/posts',
       method: 'POST',
       headers: {
         'content-type': 'application/json',
