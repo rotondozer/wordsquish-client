@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Container, Header } from 'semantic-ui-react'
+import { Container, Header, Button } from 'semantic-ui-react'
 
 import Page from './Page'
+import CreatePageForm from './CreatePageForm'
 
 class MyPages extends Component {
   constructor (props) {
@@ -40,7 +41,11 @@ class MyPages extends Component {
       .catch((err) => console.log(err))
   }
 
+  showCreatePageForm = () => this.setState({ createPage: !this.state.createPage })
+
   render () {
+    const createPageForm = (this.state.createPage) ? <CreatePageForm getMyPages={this.getMyPages} curUser={this.props.curUser} /> : undefined
+
     const pages = this.state.pages.map((page, index) => <div
       className='page'
       key={index}>
@@ -55,7 +60,11 @@ class MyPages extends Component {
     </div>)
     return (
       <Container>
-        <Header divided='horizontally' content='My Pages' />
+        <Header content='My Pages' />
+        <Button basic color='yellow' onClick={this.showCreatePageForm}>Create Page</Button>
+        <Container className='create-page-container'>
+          {createPageForm}
+        </Container>
         {pages}
       </Container>
     )
