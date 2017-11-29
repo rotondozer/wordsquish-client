@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Container, Header, Segment } from 'semantic-ui-react'
+import { Container, Header, Segment, Button } from 'semantic-ui-react'
 
 import Post from './Post.js'
 import CreatePostForm from './CreatePostForm'
@@ -58,7 +58,7 @@ class MyPosts extends Component {
   render () {
     const createPostForm = (this.state.createPost) ? <CreatePostForm getMyPosts={this.getMyPosts} curUser={this.props.curUser} /> : undefined
 
-    const posts = this.state.posts.map((post, index) => <div
+    const posts = this.state.posts.map((post, index) => <Segment
       className='post'
       key={index}>
       <Post
@@ -68,13 +68,15 @@ class MyPosts extends Component {
         body={post.body}
         // key prop must be in child ^, not grandchild
       />
-      <button onClick={() => this.deletePost(post._id)}>Delete</button>
-    </div>)
+      <Button color='red' onClick={() => this.deletePost(post._id)}>Delete</Button>
+    </Segment>)
 
     return (
       <Container>
-        <Header content='My Posts'/>
-        <button onClick={this.showCreatePostForm}>Create POST</button>
+        <Segment clearing>
+          <Header floated='left' content='My Posts'/>
+          <Button active floated='right' basic color='yellow' onClick={this.showCreatePostForm}>Create POST</Button>
+        </Segment>
         <Container className='create-post-container'>
           {createPostForm}
         </Container>
