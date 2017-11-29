@@ -13,6 +13,7 @@ class MyPosts extends Component {
       createPost: false
     }
     this.getMyPosts = this.getMyPosts.bind(this)
+    this.editPost = this.editPost.bind(this)
     this.deletePost = this.deletePost.bind(this)
   }
 
@@ -41,9 +42,27 @@ class MyPosts extends Component {
 
   showCreatePostForm = () => this.setState({ createPost: !this.state.createPost })
 
+  editPost (postId) {
+    const { title, body }= this.state
+    axios({
+      url: `http://localhost:4741/${postId}`,
+      method: 'PATCH',
+      headers: {
+        Authorization: `Token token=${this.props.curUser.token}`
+      },
+      data: {
+      'post': {
+        'title': title,
+        'body': body
+        }
+      }
+    })
+      .then(res => console.log(res))
+      .then(this.getMyPosts)
+      .catch(err => console.log(err))
+  }
+
   deletePost (postId) {
-    // Regex in the server will not process token unless it is
-    // included in the header exactly like this
     axios({
       method: 'DELETE',
       url: `http://localhost:4741/posts/${postId}`,
@@ -63,12 +82,13 @@ class MyPosts extends Component {
       key={index}>
       <Post
         id={post._id}
-        deletePost={this.deletePost}
         title={post.title}
         body={post.body}
+        createdAt={post.createdAt}
         // key prop must be in child ^, not grandchild
       />
       <Button color='red' onClick={() => this.deletePost(post._id)}>Delete</Button>
+      <Button color='yellow' onClick={() => this.editPost(post._id)}>Edit</Button>
     </Segment>)
 
     return (
