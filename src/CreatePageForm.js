@@ -37,13 +37,16 @@ class CreatePageForm extends Component {
         }
       }
     })
+      .then(res => console.log(res))
+      .then(this.props.getMyPages)
+      .catch(err => console.log(err))
   }
 
   render () {
     const { title, heading, body, footer } = this.state
 
     return (
-      <Form className='create-page-form' onSubmit={this.createPost}>
+      <Form className='create-page-form' onSubmit={this.createPage}>
         <Form.Field>
           <Form.Input name='title' value={title} placeholder='Title' onChange={this.handleChange}/>
         </Form.Field>
