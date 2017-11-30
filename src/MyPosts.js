@@ -85,6 +85,7 @@ class MyPosts extends Component {
         title={post.title}
         body={post.body}
         createdAt={post.createdAt}
+        author={this.props.curUser.email}
         // key prop must be in child ^, not grandchild
       />
       <Button color='red' onClick={() => this.deletePost(post._id)}>Delete</Button>

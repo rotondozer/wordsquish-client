@@ -13,13 +13,6 @@ class CreatePostForm extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  // handleChange (event, formField) {
-  //   event.preventDefault()
-  //   this.setState({
-  //     [formField]: event.target.value
-  //   })
-  // }
-
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   createPost () {
