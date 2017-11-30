@@ -4,16 +4,21 @@ import { Container, Header, Segment, Button } from 'semantic-ui-react'
 
 import Post from './Post.js'
 import CreatePostForm from './CreatePostForm'
+import EditPostForm from './EditPostForm'
 
 class MyPosts extends Component {
   constructor (props) {
     super (props)
     this.state = {
       posts: [],
+      editId: '',
+      editTitle: '',
+      editBody: '',
+      editPost: false,
       createPost: false
     }
     this.getMyPosts = this.getMyPosts.bind(this)
-    this.editPost = this.editPost.bind(this)
+    this.showEditPostForm = this.showEditPostForm.bind(this)
     this.deletePost = this.deletePost.bind(this)
   }
 
@@ -42,25 +47,12 @@ class MyPosts extends Component {
 
   showCreatePostForm = () => this.setState({ createPost: !this.state.createPost })
 
-  editPost (postId) {
-    const { title, body }= this.state
-    axios({
-      url: `http://localhost:4741/${postId}`,
-      method: 'PATCH',
-      headers: {
-        Authorization: `Token token=${this.props.curUser.token}`
-      },
-      data: {
-      'post': {
-        'title': title,
-        'body': body
-        }
-      }
-    })
-      .then(res => console.log(res))
-      .then(this.getMyPosts)
-      .catch(err => console.log(err))
-  }
+  showEditPostForm = (postId, curTitle, curBody) => this.setState({
+    editPost: !this.state.editPost,
+    editId: postId,
+    editTitle: curTitle,
+    editBody: curBody
+  })
 
   deletePost (postId) {
     axios({
@@ -77,6 +69,8 @@ class MyPosts extends Component {
   render () {
     const createPostForm = (this.state.createPost) ? <CreatePostForm getMyPosts={this.getMyPosts} curUser={this.props.curUser} /> : undefined
 
+    const editPostForm = (this.state.editPost) ? <EditPostForm getMyPosts={this.getMyPosts} curUser={this.props.curUser} title={this.state.editTitle} body={this.state.editBody} /> : undefined
+
     const posts = this.state.posts.map((post, index) => <Segment
       className='post'
       key={index}>
@@ -89,7 +83,7 @@ class MyPosts extends Component {
         // key prop must be in child ^, not grandchild
       />
       <Button color='red' onClick={() => this.deletePost(post._id)}>Delete</Button>
-      <Button color='yellow' onClick={() => this.editPost(post._id)}>Edit</Button>
+      <Button color='yellow' onClick={() => this.showEditPostForm(post._id, post.title, post.body)}>Edit</Button>
     </Segment>)
 
     return (
@@ -100,6 +94,7 @@ class MyPosts extends Component {
         </Segment>
         <Container className='create-post-container'>
           {createPostForm}
+          {editPostForm}
         </Container>
 
         {posts}
