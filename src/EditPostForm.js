@@ -29,6 +29,7 @@ class EditPostForm extends Component {
     })
       .then(res => console.log(res))
       .then(this.props.getMyPosts)
+      .then(this.props.showEditPostForm)
       .catch(err => console.log(err))
   }
 
