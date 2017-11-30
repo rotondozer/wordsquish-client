@@ -39,7 +39,7 @@ class CreatePostForm extends Component {
     const { title, body } = this.state
 
     return (
-      <Form className='create-post-form' onSubmit={this.createPost}>
+      <Form className='post-form' onSubmit={this.createPost}>
         <Form.Field>
           <Form.Input name='title' value={title} placeholder='Title' onChange={this.handleChange}/>
         </Form.Field>

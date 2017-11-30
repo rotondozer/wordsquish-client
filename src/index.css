@@ -31,13 +31,13 @@ main {
   background-color: rgba(135, 135, 135, 0.25) !important;
 }
 
-.create-post-container {
+.post-form-container {
   display: flex !important;
   justify-content: center;
   height: 100%;
 }
 
-.create-post-form {
+.post-form {
   width: 60%;
 }
 
@@ -47,10 +47,6 @@ main {
   justify-content: space-between;
   background-color: rgba(81, 127, 153, 0.75) !important;
 }
-
-/*.posts-column, .pages-column {
-  overflow: scroll;
-}*/
 
 .logo {
   font-family: 'Chewy', cursive;

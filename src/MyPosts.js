@@ -82,17 +82,17 @@ class MyPosts extends Component {
         author={this.props.curUser.email}
         // key prop must be in child ^, not grandchild
       />
-      <Button color='red' onClick={() => this.deletePost(post._id)}>Delete</Button>
-      <Button color='yellow' onClick={() => this.showEditPostForm(post._id, post.title, post.body)}>Edit</Button>
+      <Button basic color='red' onClick={() => this.deletePost(post._id)}>Delete</Button>
+      <Button basic className='edit-button' onClick={() => this.showEditPostForm(post._id, post.title, post.body)}>Edit</Button>
     </Segment>)
 
     return (
       <Container>
         <Segment clearing>
           <Header floated='left' content='My Posts'/>
-          <Button active floated='right' basic color='yellow' onClick={this.showCreatePostForm}>Create POST</Button>
+          <Button active floated='right' basic color='yellow' onClick={this.showCreatePostForm}>Add New Post</Button>
         </Segment>
-        <Container className='create-post-container'>
+        <Container className='post-form-container'>
           {createPostForm}
           {editPostForm}
         </Container>
