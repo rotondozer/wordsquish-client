@@ -12,10 +12,10 @@ class EditPostForm extends Component {
     this.editPost = this.editPost.bind(this)
   }
 
-  editPost (postId) {
+  editPost () {
     const { title, body } = this.state
     axios({
-      url: `http://localhost:4741/posts/${postId}`,
+      url: `http://localhost:4741/posts/${this.props.id}`,
       method: 'PATCH',
       headers: {
         Authorization: `Token token=${this.props.curUser.token}`
@@ -28,7 +28,7 @@ class EditPostForm extends Component {
       }
     })
       .then(res => console.log(res))
-      .then(this.getMyPosts)
+      .then(this.props.getMyPosts)
       .catch(err => console.log(err))
   }
 
