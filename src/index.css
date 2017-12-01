@@ -48,6 +48,17 @@ main {
   background-color: rgba(81, 127, 153, 0.75) !important;
 }
 
+.submit-edit-button {
+  background-color: rgb(205, 153, 3) !important;
+}
+
+/* Needs id because class with !important does not override default */
+#edit-button {
+  /* This color is somewhat random and could possibly change */
+  color: rgba(103, 120, 134, 0.83);
+  box-shadow: rgba(103, 120, 134, 0.83) 0px 0px 0px 1px inset;
+}
+
 .logo {
   font-family: 'Chewy', cursive;
   font-size: 25px !important;

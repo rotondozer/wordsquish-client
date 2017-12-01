@@ -83,7 +83,7 @@ class MyPosts extends Component {
         // key prop must be in child ^, not grandchild
       />
       <Button basic color='red' onClick={() => this.deletePost(post._id)}>Delete</Button>
-      <Button basic className='edit-button' onClick={() => this.showEditPostForm(post._id, post.title, post.body)}>Edit</Button>
+      <Button basic id='edit-button' onClick={() => this.showEditPostForm(post._id, post.title, post.body)}>Edit</Button>
     </Segment>)
 
     return (

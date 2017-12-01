@@ -46,7 +46,7 @@ class EditPostForm extends Component {
           <Form.TextArea name='body' value={body} onChange={this.handleChange}/>
         </Form.Field>
 
-        <Form.Button color='vk' fluid>Edit This Post</Form.Button>
+        <Form.Button id='edit-button' class='submit-edit-button' fluid>Edit This Post</Form.Button>
       </Form>
     )
   }
