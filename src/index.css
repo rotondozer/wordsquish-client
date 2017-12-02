@@ -18,7 +18,7 @@ main {
   box-shadow: none !important;*/
 }
 
-.post-container {
+.post-container, .post-form {
   width: 50% !important;
 }
 
@@ -38,7 +38,7 @@ main {
 .post-header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-between !important;
   background-color: rgba(81, 127, 153, 0.75) !important;
 }
 
@@ -71,8 +71,9 @@ main {
   height: 100%;
 }
 
-.post-form {
-  width: 50%;
+/* After 'author' in Card Header */
+.ui.card>.content:after, .ui.cards>.card>.content:after {
+  content: normal;
 }
 
 /* Meta data on footer of post */
