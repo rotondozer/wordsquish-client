@@ -46,8 +46,8 @@ class MyPages extends Component {
   render () {
     const createPageForm = (this.state.createPage) ? <CreatePageForm getMyPages={this.getMyPages} curUser={this.props.curUser} /> : undefined
 
-    const pages = this.state.pages.map((page, index) => <div
-      className='page'
+    const pages = this.state.pages.map((page, index) => <Container
+      className='page-segment'
       key={index}>
       <Page
         id={page._id}
@@ -57,7 +57,7 @@ class MyPages extends Component {
         body={page.sections.body}
         footer={page.sections.footer}
       />
-    </div>)
+    </Container>)
     return (
       <Container>
         <Header content='My Pages' />

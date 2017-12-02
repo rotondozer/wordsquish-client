@@ -18,7 +18,6 @@ class Page extends Component {
 
   render () {
     return (
-
       <Container>
         <Segment
           onClick={this.togglePageVisibility}
