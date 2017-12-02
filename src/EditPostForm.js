@@ -21,9 +21,9 @@ class EditPostForm extends Component {
         Authorization: `Token token=${this.props.curUser.token}`
       },
       data: {
-      'post': {
-        'title': title,
-        'body': body
+        'post': {
+          'title': title,
+          'body': body
         }
       }
     })

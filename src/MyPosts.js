@@ -56,14 +56,14 @@ class MyPosts extends Component {
 
   deletePost (postId) {
     axios({
-      method: 'DELETE',
       url: `http://localhost:4741/posts/${postId}`,
+      method: 'DELETE',
       headers: {
         Authorization: `Token token=${this.props.curUser.token}`
       }
     })
       .then(this.getMyPosts)
-      .catch((err) => console.log(err))
+      .catch(err => console.log(err))
   }
 
   render () {
@@ -94,7 +94,7 @@ class MyPosts extends Component {
       <Container>
         <Segment clearing>
           <Header floated='left' content='My Posts'/>
-          <Button active floated='right' basic color='yellow' onClick={this.showCreatePostForm}>Add New Post</Button>
+          <Button floated='right' basic color='yellow' onClick={this.showCreatePostForm}>Add New Post</Button>
         </Segment>
         <Container className='post-form-container'>
           {createPostForm}
