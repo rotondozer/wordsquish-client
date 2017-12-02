@@ -60,7 +60,7 @@ class MyPages extends Component {
 
   deletePage (pageId) {
     axios({
-      url: `http://localhost:4741/posts/${pageId}`,
+      url: `http://localhost:4741/pages/${pageId}`,
       method: 'DELETE',
       headers: {
         Authorization: `Token token=${this.props.curUser.token}`
@@ -88,7 +88,7 @@ class MyPages extends Component {
           footer={page.sections.footer}
         />
         <Container className='page-btn-container'>
-          <Button basic color='red'>Delete</Button>
+          <Button basic color='red' onClick={() => this.deletePage(page._id)}>Delete</Button>
           <Button basic onClick={() => this.showEditPageForm(page._id, page.title, page.sections.heading, page.sections.body, page.sections.footer)}>Edit</Button>
         </Container>
       </Container>
