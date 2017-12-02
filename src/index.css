@@ -9,9 +9,41 @@ main {
   border-radius: 0 !important;
 }
 
-.post {
-  /*border: 1px solid black;*/
+.post-segment {
+  display: flex;
+  justify-content: center !important;
   margin: 15px !important;
+  /* Removes Segment lines */
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.post-container {
+  width: min-content !important;
+}
+
+.post-btn-container {
+  margin-top: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  /*justify-content: space-around !important;*/
+}
+
+.post-btn-container > button {
+  margin: 0.5px !important;
+  width: 50% !important;
+}
+
+.post-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(81, 127, 153, 0.75) !important;
+}
+
+.post {
+  margin-bottom: 0 !important;
 }
 
 .page {
@@ -41,12 +73,7 @@ main {
   width: 60%;
 }
 
-.post-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: rgba(81, 127, 153, 0.75) !important;
-}
+
 
 /*.submit-edit-button {
   background-color: rgb(205, 153, 3) !important;

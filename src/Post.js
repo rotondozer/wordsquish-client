@@ -4,8 +4,8 @@ import { Card } from 'semantic-ui-react'
 import Time from 'react-time'
 
 const Post = (props) => (
-  <Card>
-    <Card.Content className='post-container'>
+  <Card className='post'>
+    <Card.Content className='post-header'>
       <Card.Header>{props.title}</Card.Header>
       <Card.Meta>by: {props.author}</Card.Meta>
     </Card.Content>

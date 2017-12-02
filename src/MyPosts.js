@@ -72,18 +72,22 @@ class MyPosts extends Component {
     const editPostForm = (this.state.editPost) ? <EditPostForm getMyPosts={this.getMyPosts} curUser={this.props.curUser} id={this.state.editId} title={this.state.editTitle} body={this.state.editBody} showEditPostForm={this.showEditPostForm}/> : undefined
 
     const posts = this.state.posts.map((post, index) => <Segment
-      className='post'
+      className='post-segment'
       key={index}>
-      <Post
-        id={post._id}
-        title={post.title}
-        body={post.body}
-        createdAt={post.createdAt}
-        author={this.props.curUser.email}
-        // key prop must be in child ^, not grandchild
-      />
-      <Button basic color='red' onClick={() => this.deletePost(post._id)}>Delete</Button>
-      <Button basic id='toggle-edit-form-btn' onClick={() => this.showEditPostForm(post._id, post.title, post.body)}>Edit</Button>
+      <Container className='post-container'>
+        <Post
+          id={post._id}
+          title={post.title}
+          body={post.body}
+          createdAt={post.createdAt}
+          author={this.props.curUser.email}
+          // key prop must be in child ^, not grandchild
+        />
+        <Container className='post-btn-container'>
+          <Button basic color='red' onClick={() => this.deletePost(post._id)}>Delete</Button>
+          <Button basic id='toggle-edit-form-btn' onClick={() => this.showEditPostForm(post._id, post.title, post.body)}>Edit</Button>
+        </Container>
+      </Container>
     </Segment>)
 
     return (
