@@ -39,6 +39,7 @@ class CreatePageForm extends Component {
     })
       .then(res => console.log(res))
       .then(this.props.getMyPages)
+      .then(this.props.showCreatePageForm)
       .catch(err => console.log(err))
   }
 

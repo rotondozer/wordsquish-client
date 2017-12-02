@@ -18,6 +18,7 @@ class MyPosts extends Component {
       createPost: false
     }
     this.getMyPosts = this.getMyPosts.bind(this)
+    this.showCreatePostForm = this.showCreatePostForm.bind(this)
     this.showEditPostForm = this.showEditPostForm.bind(this)
     this.deletePost = this.deletePost.bind(this)
   }
@@ -67,7 +68,7 @@ class MyPosts extends Component {
   }
 
   render () {
-    const createPostForm = (this.state.createPost) ? <CreatePostForm getMyPosts={this.getMyPosts} curUser={this.props.curUser} /> : undefined
+    const createPostForm = (this.state.createPost) ? <CreatePostForm getMyPosts={this.getMyPosts} curUser={this.props.curUser} showCreatePostForm={this.showCreatePostForm}/> : undefined
 
     const editPostForm = (this.state.editPost) ? <EditPostForm getMyPosts={this.getMyPosts} curUser={this.props.curUser} id={this.state.editId} title={this.state.editTitle} body={this.state.editBody} showEditPostForm={this.showEditPostForm}/> : undefined
 

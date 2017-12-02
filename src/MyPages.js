@@ -18,8 +18,9 @@ class MyPages extends Component {
       createPage: false
     }
     this.getMyPages = this.getMyPages.bind(this)
-    this.deletePage = this.deletePage.bind(this)
+    this.showCreatePageForm = this.showCreatePageForm.bind(this)
     this.showEditPageForm = this.showEditPageForm.bind(this)
+    this.deletePage = this.deletePage.bind(this)
   }
 
   componentWillMount () {
@@ -71,7 +72,7 @@ class MyPages extends Component {
   }
 
   render () {
-    const createPageForm = (this.state.createPage) ? <CreatePageForm getMyPages={this.getMyPages} curUser={this.props.curUser} /> : undefined
+    const createPageForm = (this.state.createPage) ? <CreatePageForm getMyPages={this.getMyPages} curUser={this.props.curUser} showCreatePageForm={this.showCreatePageForm}/> : undefined
 
     const editPageForm = (this.state.editPage) ? <EditPageForm getMyPages={this.getMyPages} curUser={this.props.curUser} id={this.state.editId} title={this.state.editTitle} heading={this.state.editHeading} body={this.state.editBody} footer={this.state.editFooter} showEditPageForm={this.showEditPageForm}/> : undefined
 
