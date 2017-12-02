@@ -71,7 +71,7 @@ class MyPosts extends Component {
 
     const editPostForm = (this.state.editPost) ? <EditPostForm getMyPosts={this.getMyPosts} curUser={this.props.curUser} id={this.state.editId} title={this.state.editTitle} body={this.state.editBody} showEditPostForm={this.showEditPostForm}/> : undefined
 
-    const posts = this.state.posts.map((post, index) => <Segment
+    const posts = this.state.posts.map((post, index) => <Container
       className='post-segment'
       key={index}>
       <Container className='post-container'>
@@ -88,7 +88,7 @@ class MyPosts extends Component {
           <Button basic id='toggle-edit-form-btn' onClick={() => this.showEditPostForm(post._id, post.title, post.body)}>Edit</Button>
         </Container>
       </Container>
-    </Segment>)
+    </Container>)
 
     return (
       <Container>

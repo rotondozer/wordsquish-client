@@ -75,8 +75,8 @@ class Home extends Component {
     const posts = this.state.posts.map((post, index) => {
       let author
       this.state.users.forEach(user => user._id === post._owner ? author = user.email : user)
-      return <div
-        className='post'
+      return <Container
+        className='post-segment'
         key={index}>
         <Post
           id={post._id}
@@ -86,7 +86,7 @@ class Home extends Component {
           author={author}
           createdAt={post.createdAt}
         />
-      </div>
+      </Container>
     })
 
     const pages = this.state.pages.map((page, index) => {

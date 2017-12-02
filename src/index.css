@@ -14,12 +14,12 @@ main {
   justify-content: center !important;
   margin: 15px !important;
   /* Removes Segment lines */
-  border: none !important;
-  box-shadow: none !important;
+  /*border: none !important;
+  box-shadow: none !important;*/
 }
 
 .post-container {
-  width: min-content !important;
+  width: 60% !important;
 }
 
 .post-btn-container {
@@ -43,6 +43,7 @@ main {
 }
 
 .post {
+  width: 100% !important;
   margin-bottom: 0 !important;
 }
 
@@ -59,6 +60,7 @@ main {
   background-color: rgba(81, 127, 153, 0.75) !important;
 }
 
+/* Combine this with .post? */
 .card {
   background-color: rgba(135, 135, 135, 0.25) !important;
 }
@@ -71,6 +73,11 @@ main {
 
 .post-form {
   width: 60%;
+}
+
+/* Meta data on footer of post */
+.ui.card>.extra, .ui.cards>.card>.extra {
+  text-align: right;
 }
 
 
