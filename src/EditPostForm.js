@@ -38,7 +38,7 @@ class EditPostForm extends Component {
   render () {
     const { title, body } = this.state
     return (
-      <Form className='post-form' onSubmit={this.editPost} attached>
+      <Form className='post-form' onSubmit={this.editPost}>
         <Form.Field>
           <Form.Input name='title' value={title} onChange={this.handleChange}/>
         </Form.Field>
@@ -46,7 +46,7 @@ class EditPostForm extends Component {
           <Form.TextArea name='body' value={body} onChange={this.handleChange}/>
         </Form.Field>
 
-        <Form.Button fluid attached='bottom'>Edit This Post</Form.Button>
+        <Form.Button fluid>Edit This Post</Form.Button>
       </Form>
     )
   }

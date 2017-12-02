@@ -19,7 +19,7 @@ main {
 }
 
 .post-container {
-  width: 60% !important;
+  width: 50% !important;
 }
 
 .post-btn-container {
@@ -72,19 +72,13 @@ main {
 }
 
 .post-form {
-  width: 60%;
+  width: 50%;
 }
 
 /* Meta data on footer of post */
 .ui.card>.extra, .ui.cards>.card>.extra {
   text-align: right;
 }
-
-
-
-/*.submit-edit-button {
-  background-color: rgb(205, 153, 3) !important;
-}*/
 
 /* Needs id because class with !important does not override default */
 #toggle-edit-form-btn {
