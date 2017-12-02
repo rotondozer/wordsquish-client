@@ -17,7 +17,7 @@ class EditPageForm extends Component {
   editPage () {
     const { title, heading, body, footer } = this.state
     axios({
-      url: `http://localhost:4741/pages/${this.props.id}`,
+      url: `https://wordsquish-api.herokuapp.com/pages/${this.props.id}`,
       method: 'PATCH',
       headers: {
         Authorization: `Token token=${this.props.curUser.token}`

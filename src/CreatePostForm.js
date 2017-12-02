@@ -17,7 +17,7 @@ class CreatePostForm extends Component {
 
   createPost () {
     axios({
-      url: 'http://localhost:4741/posts',
+      url: 'https://wordsquish-api.herokuapp.com/posts',
       method: 'POST',
       headers: {
         'content-type': 'application/json',

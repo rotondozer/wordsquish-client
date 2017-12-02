@@ -15,7 +15,7 @@ class EditPostForm extends Component {
   editPost () {
     const { title, body } = this.state
     axios({
-      url: `http://localhost:4741/posts/${this.props.id}`,
+      url: `https://wordsquish-api.herokuapp.com/posts/${this.props.id}`,
       method: 'PATCH',
       headers: {
         Authorization: `Token token=${this.props.curUser.token}`
