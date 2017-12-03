@@ -109,7 +109,7 @@ class Home extends Component {
       <Container>
         <Header as='h2' dividing>Recent Activity</Header>
 
-        <Grid divided relaxed='very'>
+        <Grid stackable divided relaxed='very'>
           <Grid.Column width={10} className='pages-column'>
             {pages}
           </Grid.Column>
