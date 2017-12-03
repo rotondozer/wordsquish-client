@@ -32,7 +32,7 @@ class MyPages extends Component {
     // each time the function is called
     const user = this.props.curUser
     axios({
-      url: `https://wordsquish-api.herokuapp.com/pages/${user._id}/my_pages`,
+      url: `http://localhost:4741/pages/${user._id}/my_pages`,
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -61,7 +61,7 @@ class MyPages extends Component {
 
   deletePage (pageId) {
     axios({
-      url: `https://wordsquish-api.herokuapp.com/pages/${pageId}`,
+      url: `http://localhost:4741/pages/${pageId}`,
       method: 'DELETE',
       headers: {
         Authorization: `Token token=${this.props.curUser.token}`

@@ -1,12 +1,21 @@
 
 main {
-  margin-top: 80px;
+  margin-top: 84px;
+}
+
+body {
+  font-family: 'Lora', serif !important;
 }
 
 .navbar {
   margin: 0;
   background-color: rgba(81, 127, 153, 0.75) !important;
   border-radius: 0 !important;
+}
+
+.navbar > a:not(.logo) {
+  font-size: 1.25rem !important;
+  font-weight: 575 !important;
 }
 
 .post-segment {
@@ -90,5 +99,5 @@ main {
 
 .logo {
   font-family: 'Chewy', cursive;
-  font-size: 25px !important;
+  font-size: 2rem !important;
 }
