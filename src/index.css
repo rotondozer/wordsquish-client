@@ -1,6 +1,6 @@
 
 main {
-  margin-top: 84px;
+  margin-top: 70px;
 }
 
 body {
@@ -14,8 +14,8 @@ body {
 }
 
 .navbar > a:not(.logo) {
-  font-size: 1.25rem !important;
-  font-weight: 575 !important;
+  /*font-size: 1.25rem !important;*/
+  /*font-weight: 575 !important;*/
 }
 
 .post-segment {
@@ -99,5 +99,17 @@ body {
 
 .logo {
   font-family: 'Chewy', cursive;
-  font-size: 2rem !important;
+  font-size: 1.3rem !important;
+}
+
+@media screen and (min-width: 480px) {
+    main {
+      margin-top: 90px;
+    }
+    .logo {
+        font-size: 2rem !important;;
+    }
+    .navbar > a:not(.logo) {
+      font-size: 1.25rem !important;
+    }
 }
