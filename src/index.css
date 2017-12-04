@@ -14,8 +14,7 @@ body {
 }
 
 .navbar > a:not(.logo) {
-  /*font-size: 1.25rem !important;*/
-  /*font-weight: 575 !important;*/
+  font-size: 0.85rem;
 }
 
 .post-segment {
