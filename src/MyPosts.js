@@ -30,7 +30,7 @@ class MyPosts extends Component {
   getMyPosts () {
     const user = this.props.curUser
     axios({
-      url: `http://localhost:4741/posts/${user._id}/my_posts`,
+      url: `https://wordsquish-api.herokuapp.com/posts/${user._id}/my_posts`,
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -57,7 +57,7 @@ class MyPosts extends Component {
 
   deletePost (postId) {
     axios({
-      url: `http://localhost:4741/posts/${postId}`,
+      url: `https://wordsquish-api.herokuapp.com/posts/${postId}`,
       method: 'DELETE',
       headers: {
         Authorization: `Token token=${this.props.curUser.token}`

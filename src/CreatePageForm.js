@@ -20,7 +20,7 @@ class CreatePageForm extends Component {
   createPage () {
     const { title, heading, body, footer } = this.state
     axios({
-      url: 'http://localhost:4741/pages',
+      url: 'https://wordsquish-api.herokuapp.com/pages',
       method: 'POST',
       headers: {
         'content-type': 'application/json',

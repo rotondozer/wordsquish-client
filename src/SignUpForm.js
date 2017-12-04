@@ -18,7 +18,7 @@ class SignUpForm extends Component {
 
   signUp () {
     axios({
-      url: 'http://localhost:4741/sign-up',
+      url: 'https://wordsquish-api.herokuapp.com/sign-up',
       method: 'POST',
       headers: {
         'content-type': 'application/json'
