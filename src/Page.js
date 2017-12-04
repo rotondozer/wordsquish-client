@@ -19,17 +19,19 @@ class Page extends Component {
   render () {
     return (
       <Container>
+        {/* Clickable Page Title */}
         <Segment
           onClick={this.togglePageVisibility}
           className='page-title'>
-          {this.props.title}
+          <Header as='h3' content={this.props.title} />
         </Segment>
+        {/* 'The Page' */}
         <Segment
           hidden={this.state.containerHide}
           className='page-content'>
-          <Header dividing content={this.props.heading}/>
+          <Header className='page-heading' dividing content={this.props.heading}/>
           <Container as='div'>
-            <p>{this.props.body}</p>
+            <p className='page-body'>{this.props.body}</p>
             <Divider />
             {this.props.footer}
           </Container>

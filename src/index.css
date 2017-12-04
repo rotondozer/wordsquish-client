@@ -62,11 +62,25 @@ body {
 }
 
 .page-content {
-  background-color: rgba(135, 135, 135, 0.25) !important;
+  /*background-color: rgba(135, 135, 135, 0.25) !important;*/
+  border-radius: 0 !important;
 }
 
 .page-title {
   background-color: rgba(81, 127, 153, 0.75) !important;
+}
+
+.page-heading {
+  background-color: rgba(135, 135, 135, 0.25) !important;
+  text-align: center;
+}
+
+.page-body {
+
+}
+
+.page-footer {
+
 }
 
 /* Combine this with .post? */
@@ -103,13 +117,13 @@ body {
 }
 
 @media screen and (min-width: 480px) {
-    main {
-      margin-top: 90px;
-    }
-    .logo {
-        font-size: 2rem !important;;
-    }
-    .navbar > a:not(.logo) {
-      font-size: 1.25rem !important;
-    }
+  main {
+    margin-top: 90px;
+  }
+  .logo {
+      font-size: 2rem !important;;
+  }
+  .navbar > a:not(.logo) {
+    font-size: 1.25rem !important;
+  }
 }
