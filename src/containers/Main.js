@@ -1,10 +1,10 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import MyPosts from './MyPosts'
-import MyPages from './MyPages'
-import Home from './Home'
-import Account from './Account'
+import MyPosts from '../views/MyPosts'
+import MyPages from '../views/MyPages'
+import Home from '../views/Home'
+import Account from '../views/Account'
 
 const Main = (props) => (
   <main>

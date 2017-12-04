@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Container, Header, Segment, Button } from 'semantic-ui-react'
 
-import Post from './Post.js'
-import CreatePostForm from './CreatePostForm'
-import EditPostForm from './EditPostForm'
+import Post from '../containers/Post.js'
+import CreatePostForm from '../forms/CreatePostForm'
+import EditPostForm from '../forms/EditPostForm'
 
 class MyPosts extends Component {
   constructor (props) {

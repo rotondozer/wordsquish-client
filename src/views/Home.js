@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Container, Grid, Header } from 'semantic-ui-react'
 
-import Post from './Post'
-import Page from './Page'
+import Post from '../containers/Post'
+import Page from '../containers/Page'
 
 class Home extends Component {
   constructor (props) {

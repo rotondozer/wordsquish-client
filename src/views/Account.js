@@ -1,10 +1,10 @@
 import React from 'react'
 import { Container, Header, Divider } from 'semantic-ui-react'
 
-import SignUpForm from './SignUpForm'
-import SignInForm from './SignInForm'
-import ChangePasswordForm from './ChangePasswordForm'
-import SignOutForm from './SignOutForm'
+import SignUpForm from '../forms/SignUpForm'
+import SignInForm from '../forms/SignInForm'
+import ChangePasswordForm from '../forms/ChangePasswordForm'
+import SignOutForm from '../forms/SignOutForm'
 
 const Account = (props) => {
 

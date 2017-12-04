@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Container, Segment, Header, Button } from 'semantic-ui-react'
 
-import Page from './Page'
-import CreatePageForm from './CreatePageForm'
-import EditPageForm from './EditPageForm'
+import Page from '../containers/Page'
+import CreatePageForm from '../forms/CreatePageForm'
+import EditPageForm from '../forms/EditPageForm'
 
 class MyPages extends Component {
   constructor (props) {
